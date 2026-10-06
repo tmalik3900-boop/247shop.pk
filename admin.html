@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>247Shop Admin</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#fff7f1;font-family:Arial;color:#171717}.top{background:linear-gradient(90deg,#ff5a00,#ff7a00);color:#fff;padding:22px}.wrap{max-width:1000px;margin:auto;padding:20px}.card{background:#fff;border:1px solid #eee;border-radius:14px;padding:20px;margin-bottom:18px;box-shadow:0 8px 25px #00000009}h1,h2{margin-top:0}.muted{color:#777}input,select,textarea,button{width:100%;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:15px;margin-top:8px}button{background:#ff5a00;color:#fff;border:0;font-weight:800;cursor:pointer}.danger{background:#d92828}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.product{display:flex;gap:14px;align-items:center;border-top:1px solid #eee;padding:14px 0}.product img{width:75px;height:75px;object-fit:contain;border:1px solid #eee;border-radius:8px}.actions{margin-left:auto;display:flex;gap:7px}.actions button{width:auto;padding:9px 12px}.back{display:inline-block;color:#fff;text-decoration:none;margin-top:6px}@media(max-width:600px){.row{grid-template-columns:1fr}.product{align-items:flex-start}.actions{display:block}.actions button{margin-bottom:5px}}
+</style></head>
+<body>
+<div class="top"><div class="wrap"><h1>24/7 Shop Admin</h1><div>Manage products, pictures, prices and categories</div><a class="back" href="index.html">← Open Shop</a></div></div>
+<div class="wrap">
+<div class="card"><h2>Add Product</h2>
+<input id="name" placeholder="Product name">
+<div class="row"><input id="price" type="number" placeholder="Price (PKR)">
+<select id="category"><option>LCD & OLED</option><option>Batteries</option><option>Charging Parts</option><option>Charging IC</option><option>Cameras</option><option>Speakers</option><option>Repair Tools</option><option>Accessories</option><option>iPhone</option><option>Samsung</option><option>Oppo</option><option>Vivo</option><option>Xiaomi</option><option>Infinix</option><option>Tecno</option></select></div>
+<textarea id="desc" placeholder="Description"></textarea><input id="pic" type="file" accept="image/*"><button onclick="addProduct()">ADD PRODUCT</button><p id="msg" class="muted"></p></div>
+<div class="card"><h2>Products</h2><div id="list"></div><button class="danger" onclick="clearAll()">DELETE ALL PRODUCTS</button></div>
+</div>
+<script>
+const KEY='247shop_products';
+function get(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return[]}}
+function save(a){localStorage.setItem(KEY,JSON.stringify(a));render()}
+function addProduct(){
+ const name=document.getElementById('name').value.trim(),price=document.getElementById('price').value,category=document.getElementById('category').value,desc=document.getElementById('desc').value.trim(),file=document.getElementById('pic').files[0];
+ if(!name||!price){alert('Product name and price are required');return}
+ const finish=image=>{const a=get();a.push({id:Date.now(),name,price:Number(price),category,desc,image:image||'',icon:'📦'});save(a);document.getElementById('msg').textContent='Product added successfully.';document.getElementById('name').value='';document.getElementById('price').value='';document.getElementById('desc').value='';document.getElementById('pic').value=''}
+ if(file){const r=new FileReader();r.onload=()=>finish(r.result);r.readAsDataURL(file)}else finish('');
+}
+function render(){const a=get();document.getElementById('list').innerHTML=a.map(p=>`<div class="product"><img src="${p.image||'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2275%22 height=%2275%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22%23fafafa%22/%3E%3Ctext x=%2237%22 y=%2245%22 text-anchor=%22middle%22 font-size=%2230%22%3E📦%3C/text%3E%3C/svg%3E'}"><div><b>${p.name}</b><br><small>${p.category} · Rs. ${Number(p.price).toLocaleString('en-PK')}</small></div><div class="actions"><button class="danger" onclick="del(${p.id})">Delete</button></div></div>`).join('')||'<p class="muted">No products yet.</p>'}
+function del(id){save(get().filter(p=>p.id!==id))}
+function clearAll(){if(confirm('Delete all products?')){localStorage.removeItem(KEY);render()}}
+render();
+</script>
+</body></html>

@@ -1,0 +1,11 @@
+247Shop Redesigned Setup
+
+Open index.html for the customer shop.
+Open admin.html to add/delete products and upload pictures.
+
+The design is based on the requested bright orange/white 24/7 Shop layout.
+Admin products are stored in browser localStorage, so this prototype shares data
+between index.html and admin.html on the same browser/device.
+
+For a real public shop where products and images are shared with every customer,
+connect the admin to a central database + image storage (for example Cloudflare D1/R2).

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="24/7 Shop - Original Mobile Parts & Accessories">
+<title>24/7 Shop — Mobile Parts & Accessories</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="top-strip">
+  <div class="container strip-inner">
+    <span>⚙ Welcome to 24/7 Shop - Original Mobile Parts & Accessories</span>
+    <div class="strip-links"><span>🚚 Track Order</span><i></i><span>♧ Contact Us</span><i></i><a href="https://wa.me/923337400125" target="_blank">🟢 WhatsApp: 0333-7400125</a></div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container header-main">
+    <a class="logo" href="#"><span>24/7</span><b>SHOP</b><small>MOBILE PARTS & ACCESSORIES</small></a>
+    <div class="search-wrap">
+      <input id="search" placeholder="Search mobile parts, accessories, tools..." aria-label="Search products">
+      <select id="searchCategory" aria-label="Search category">
+        <option value="All">All Categories</option>
+        <option>LCD & OLED</option><option>Batteries</option><option>Charging Parts</option>
+        <option>Charging IC</option><option>Cameras</option><option>Speakers</option>
+        <option>Repair Tools</option><option>Accessories</option>
+      </select>
+      <button onclick="filterProducts()" aria-label="Search">⌕</button>
+    </div>
+    <div class="head-actions">
+      <button class="head-action"><span class="big-icon">♡</span><em>0</em><small>Wishlist</small></button>
+      <button class="head-action" onclick="openCart()"><span class="big-icon">🛒</span><em id="cartCount">0</em><small>Cart</small></button>
+      <div class="account"><span class="user-icon">♙</span><div><b>My Account</b><small>Login / Register</small></div></div>
+    </div>
+  </div>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <button class="all-cats" onclick="setCategory('All')">☰ &nbsp; ALL CATEGORIES <span>→</span></button>
+      <a class="active" href="#">Home</a>
+      <a href="#" onclick="setCategory('iPhone')">Apple</a>
+      <a href="#" onclick="setCategory('Samsung')">Samsung</a>
+      <a href="#" onclick="setCategory('Oppo')">Oppo</a>
+      <a href="#" onclick="setCategory('Vivo')">Vivo</a>
+      <a href="#" onclick="setCategory('Xiaomi')">Xiaomi</a>
+      <a href="#" onclick="setCategory('Infinix')">Infinix</a>
+      <a href="#" onclick="setCategory('Tecno')">Tecno</a>
+      <a href="#" onclick="setCategory('LCD & OLED')">LCD & OLED</a>
+      <a href="#" onclick="setCategory('Batteries')">Batteries</a>
+      <a href="#" onclick="setCategory('Repair Tools')">Tools</a>
+      <a href="#" onclick="setCategory('Accessories')">Accessories</a>
+      <a href="#contact">Contact Us</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <div class="hero-title">ORIGINAL<br><strong>MOBILE PARTS</strong><br>& ACCESSORIES</div>
+      <p class="hero-sub">Best Quality <b>•</b> Best Prices <b>•</b> Fast Delivery</p>
+      <div class="benefits">
+        <div><span>♢</span><b>100% Original<small>Genuine Parts</small></b></div>
+        <div><span>▣</span><b>Fast Delivery<small>Across Pakistan</small></b></div>
+        <div><span>◎</span><b>Quality Check<small>Before Shipping</small></b></div>
+        <div><span>♧</span><b>24/7 Support<small>WhatsApp & Call</small></b></div>
+      </div>
+      <div class="hero-buttons">
+        <a class="btn shop-btn" href="#products">SHOP NOW <span>→</span></a>
+        <a class="btn whatsapp-btn" href="https://wa.me/923337400125?text=Assalam-o-Alaikum%2C%20I%20want%20to%20order%20from%2024%2F7%20Shop." target="_blank">◉ &nbsp; WHATSAPP ORDER</a>
+      </div>
+    </div>
+    <div class="hero-visual"><img src="hero-parts.jpg" alt="Mobile parts and accessories"></div>
+    <button class="slider-arrow left" aria-label="Previous">‹</button>
+    <button class="slider-arrow right" aria-label="Next">›</button>
+    <div class="dots"><i class="on"></i><i></i><i></i></div>
+  </div>
+</section>
+
+<section class="service-bar container">
+  <div><strong>♢</strong><span><b>100% Original Parts</b><small>Genuine & Tested</small></span></div>
+  <div><strong>▣</strong><span><b>Fast Delivery</b><small>All Over Pakistan</small></span></div>
+  <div><strong>⟳</strong><span><b>Easy Returns</b><small>7 Days Return Policy</small></span></div>
+  <div><strong>♧</strong><span><b>24/7 Support</b><small>WhatsApp & Call</small></span></div>
+</section>
+
+<section class="container section">
+  <div class="section-title"><span></span><h2>SHOP BY CATEGORY</h2><span></span></div>
+  <div class="category-grid">
+    <button onclick="setCategory('LCD & OLED')"><div>📱</div><b>LCD & OLED</b></button>
+    <button onclick="setCategory('Batteries')"><div>🔋</div><b>Batteries</b></button>
+    <button onclick="setCategory('Charging Parts')"><div>🔌</div><b>Charging Parts</b></button>
+    <button onclick="setCategory('Charging IC')"><div>▣</div><b>Charging IC</b></button>
+    <button onclick="setCategory('Cameras')"><div>📷</div><b>Cameras</b></button>
+    <button onclick="setCategory('Speakers')"><div>🔊</div><b>Speakers</b></button>
+    <button onclick="setCategory('Repair Tools')"><div>🪛</div><b>Repair Tools</b></button>
+    <button onclick="setCategory('Accessories')"><div>🔌</div><b>Accessories</b></button>
+  </div>
+</section>
+
+<section id="products" class="container section products-section">
+  <div class="section-head"><h2>FEATURED PRODUCTS</h2><button onclick="setCategory('All')">VIEW ALL PRODUCTS →</button></div>
+  <div id="productsGrid" class="products"></div>
+</section>
+</main>
+
+<div class="floating-wa"><a href="https://wa.me/923337400125" target="_blank">◉</a></div>
+
+<div id="overlay" class="overlay" onclick="closeCart(event)">
+  <aside class="drawer" onclick="event.stopPropagation()">
+    <div class="drawer-head"><h2>Your Cart</h2><button onclick="closeCart()">✕</button></div>
+    <div id="cartItems"></div>
+    <div class="total"><span>Total</span><strong id="cartTotal">Rs. 0</strong></div>
+    <button class="btn shop-btn full" onclick="checkout()">ORDER ON WHATSAPP</button>
+  </aside>
+</div>
+
+<footer id="contact">
+  <div class="container footer-grid">
+    <div><div class="logo"><span>24/7</span><b>SHOP</b><small>MOBILE PARTS & ACCESSORIES</small></div><p>Original mobile parts, repair tools and accessories.</p></div>
+    <div><b>Contact Us</b><p>WhatsApp: 0333-7400125</p></div>
+    <div><b>Delivery</b><p>Fast delivery across Pakistan</p></div>
+  </div>
+  <div class="copy">© 2026 24/7 Shop. All rights reserved.</div>
+</footer>
+
+<a class="admin-link" href="admin.html">Admin</a>
+<script src="script.js"></script>
+</body>
+</html>
